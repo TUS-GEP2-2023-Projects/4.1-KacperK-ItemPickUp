@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class ItemScript : MonoBehaviour
 {
@@ -19,6 +20,13 @@ public class ItemScript : MonoBehaviour
 
             var _bodyType = theRB;
             _bodyType.bodyType = RigidbodyType2D.Kinematic;
+            theRB = _bodyType;
+        }
+        if (isActive == true && Input.GetKey(KeyCode.L) == true)
+        {
+            isActive = false;
+            var _bodyType = theRB;
+            _bodyType.bodyType = RigidbodyType2D.Dynamic;
             theRB = _bodyType;
         }
     }

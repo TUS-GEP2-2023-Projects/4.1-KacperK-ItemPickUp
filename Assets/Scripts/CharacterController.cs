@@ -105,7 +105,7 @@ public class CharacterController : MonoBehaviour
     // Create a variable to store whether we are facing right or not. I am going to
     // initialise it to true but you can change it in the inspector depending on which
     // direction you want your character to start in.
-    bool facingRight = true;
+    public bool facingRight = true;
 
     // The value of the Horizontal axis (some value between -1 and 1)
     private float hAxis;
@@ -360,7 +360,7 @@ public class CharacterController : MonoBehaviour
      * flip the character we change the sign of it's x scale i.e. if it's x scale is 1 we change it to -1 and 
      * if it is -1 we change it to 1. To change the sign of any number simply multiply it by -1.
      */
-    private void Flip()
+    public void Flip()
     {
         //saying facingright is equal to not facingright (we are facing the opposite direction)
         facingRight = !facingRight;

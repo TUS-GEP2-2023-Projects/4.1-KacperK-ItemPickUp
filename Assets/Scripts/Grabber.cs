@@ -9,9 +9,11 @@ public class Grabber : MonoBehaviour
     public Transform grabRay;
     public LayerMask Items;
     public ItemScript _item;
+    public Vector2 rayDirection;
+    public CharacterController _characterController;
     void OnDrawGizmos()
     {
-        bool rayHit = Physics2D.Raycast(grabRay.position, Vector2.right, grabDistance, Items);
+        bool rayHit = Physics2D.Raycast(grabRay.position, rayDirection, grabDistance, Items);
 
         if (rayHit == true && Input.GetKey(KeyCode.K) == true)
         {
@@ -29,5 +31,15 @@ public class Grabber : MonoBehaviour
             Gizmos.DrawLine(rayStartPosition, rayStartPosition + (rayDirection * grabDistance));
         }
     }
-
+    public void Update()
+    {
+        if(_characterController.facingRight == true)
+        {
+            rayDirection = Vector2.right;
+        }
+        else
+        {
+            rayDirection = Vector2.left;
+        }
+    }
 }
